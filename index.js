@@ -68,3 +68,29 @@
 // };
 
 // console.log(twoSums([2, 7, 11, 15], 18));
+
+// !leedcode reverse
+// ? example 1
+
+const reverse = function (x) {
+  let b,
+    sum = 0;
+  while (x > 0) {
+    b = x % 10;
+    sum = sum * 10 + b;
+    x = Math.floor(x / 10);
+  }
+  return sum;
+};
+
+console.log(reverse(120));
+
+// ? example 2
+
+const reverse = function (x) {
+  if (x < 0) return -1 * reverse(-x);
+  const solution = (x + "").split("").reverse().join("");
+  return solution > 2 ** 31 - 1 ? 0 : solution;
+};
+
+console.log(reverse(-123456789));
